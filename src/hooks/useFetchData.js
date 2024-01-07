@@ -1,46 +1,51 @@
-import axios from 'axios';
-import { useEffect, useState} from 'react';
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { initialState } from "../data/initialState";
 
-// REFACTOR: move endpoints to a separate file
-const monstersEndpoint =
-  "http://botw-compendium.herokuapp.com/api/v3/compendium/category/monsters";
+const {
+  creatures: creatureState,
+  equipment: equipmentState,
+  materials: materialState,
+  monsters: monsterState,
+  treasure: treasureState,
+} = initialState;
+
+const categoryEndpoint = (category) =>
+  "http://botw-compendium.herokuapp.com/api/v3/compendium/category/" + category;
 
 const useFetchData = () => {
-  const monsterState = [
-    {
-      category: "",
-      common_locations: "",
-      description: "",
-      drops: "",
-      id: "",
-      image: "",
-      name: "",
-      size: "",
-      strength: "",
-      weaknesses: "",
-    },
-  ];
-  
   const [loading, setLoading] = useState(true);
+  const [creatures, setCreatures] = useState([]);
+  const [equipment, setEquipment] = useState([]);
+  const [materials, setMaterials] = useState([]);
   const [monsters, setMonsters] = useState(monsterState);
+  const [treasure, setTreasure] = useState([]);
 
   const fetchData = async (url, setState) => {
     try {
       const { data: response } = await axios.get(url);
       setState(response.data);
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
     setLoading(false);
   };
 
   useEffect(() => {
-    fetchData(monstersEndpoint, setMonsters);
+    fetchData(categoryEndpoint("creatures"), setCreatures);
+    fetchData(categoryEndpoint("equipment"), setEquipment);
+    fetchData(categoryEndpoint("materials"), setMaterials);
+    fetchData(categoryEndpoint("monsters"), setMonsters);
+    fetchData(categoryEndpoint("treasure"), setTreasure);
   }, []);
 
   return {
     loading,
+    creatures,
+    equipment,
+    materials,
     monsters,
+    treasure,
   };
 };
 
