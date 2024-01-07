@@ -15,11 +15,11 @@ const categoryEndpoint = (category) =>
 
 const useFetchData = () => {
   const [loading, setLoading] = useState(true);
-  const [creatures, setCreatures] = useState([]);
-  const [equipment, setEquipment] = useState([]);
-  const [materials, setMaterials] = useState([]);
+  const [creatures, setCreatures] = useState(creatureState);
+  const [equipment, setEquipment] = useState(equipmentState);
+  const [materials, setMaterials] = useState(materialState);
   const [monsters, setMonsters] = useState(monsterState);
-  const [treasure, setTreasure] = useState([]);
+  const [treasure, setTreasure] = useState(treasureState);
 
   const fetchData = async (url, setState) => {
     try {
