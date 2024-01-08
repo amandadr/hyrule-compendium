@@ -1,6 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
-import React, { useState, useEffect } from "react";
+import React from "react";
+import Category from "./components/Category";
 import useFetchData from "./hooks/useFetchData";
 
 function App() {
@@ -12,12 +13,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         {loading && <div>Loading</div>}
         {!loading && (
-          <div>
-            <h1>Monsters</h1>
-            {monsters.map((monster) => {
-              return <div key={monster.id}>{monster.name}</div>;
-            })}
-          </div>
+          <Category title="Monsters" data={monsters} key="monsters" />
         )}
 
         <a
