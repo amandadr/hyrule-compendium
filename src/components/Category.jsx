@@ -31,12 +31,23 @@ function Category(props) {
 
   const classes = useStyles();
 
+  const sortedData = data.sort((a, b) => {
+    return (a.id - b.id);
+  });
+
+  // location={entry.common_locations && entry.common_locations[0]}
+
   return (
     <Box className={classes.box}>
       <h1>{title}</h1>
       <List className={classes.list}>
-        {data.map((entry) => (
-          <ListEntry data={entry} location={entry.common_locations && entry.common_locations[0]} className={classes.item} key={entry.id} />
+        {sortedData.map((entry) => (
+          <ListEntry
+            data={entry}
+            location={entry.id}
+            className={classes.item}
+            key={entry.id}
+          />
         ))}
       </List>
     </Box>

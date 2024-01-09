@@ -15,6 +15,7 @@ const categoryEndpoint = (category) =>
 
 const useFetchData = () => {
   const [loading, setLoading] = useState(true);
+  const [allEntries, setEntries] = useState([]);
   const [creatures, setCreatures] = useState(creatureState);
   const [equipment, setEquipment] = useState(equipmentState);
   const [materials, setMaterials] = useState(materialState);
@@ -32,6 +33,10 @@ const useFetchData = () => {
   };
 
   useEffect(() => {
+    fetchData(
+      "https://botw-compendium.herokuapp.com/api/v3/compendium/all",
+      setEntries
+    );
     fetchData(categoryEndpoint("creatures"), setCreatures);
     fetchData(categoryEndpoint("equipment"), setEquipment);
     fetchData(categoryEndpoint("materials"), setMaterials);
@@ -41,6 +46,7 @@ const useFetchData = () => {
 
   return {
     loading,
+    allEntries,
     creatures,
     equipment,
     materials,

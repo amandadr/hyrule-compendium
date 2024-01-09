@@ -5,7 +5,7 @@ import Category from "./components/Category";
 import useFetchData from "./hooks/useFetchData";
 
 function App() {
-  const { monsters, loading } = useFetchData();
+  const { allEntries, loading } = useFetchData();
 
   return (
     <div className="App">
@@ -13,7 +13,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         {loading && <div>Loading</div>}
         {!loading && (
-          <Category title="Monsters" data={monsters} key="monsters" />
+          <Category title="All Entries" data={allEntries} key="allEntries" />
         )}
 
         <a
