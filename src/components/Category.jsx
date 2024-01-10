@@ -2,14 +2,14 @@ import ListEntry from "./ListEntry";
 import { Box, List } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { useEffect, useState } from "react";
-import useFetchData from "../hooks/useFetchData";
+import useAllData from "../hooks/useAllData";
+import useCategoryData from "../hooks/useCategoryData";
 import { listContext } from "../App";
 import Navigation from "./Navigation";
 
 const useStyles = makeStyles({
   item: {
-    width: "100%",
-    maxWidth: "50vw",
+    maxWidth: "40vw",
     border: "1px solid black",
     borderRadius: "5px",
     marginBottom: "5px",
@@ -37,38 +37,37 @@ const useStyles = makeStyles({
   },
 });
 
-
 function Category() {
-  const { allEntries } = useFetchData();
+  const { allEntries } = useAllData();
+  const { loading } = useCategoryData();
 
   const classes = useStyles();
 
-  const [listState, setListState] = useState([]);
+  const [listState, setListState] = useState({ name: "All Entries", data: [] });
 
   useEffect(() => {
     setListState(allEntries);
-  }, [allEntries]);
+  }, [loading === false]);
 
-  const sortedData = listState.sort((a, b) => {
+  const sortedData = listState.data.sort((a, b) => {
     return a.id - b.id;
   });
 
   const odd = sortedData.filter((e) => e.id % 2);
   const even = sortedData.filter((e) => !(e.id % 2));
 
-
   return (
     <listContext.Provider value={{ listState, setListState }}>
       <Navigation />
       <Box className={classes.box}>
-        <h1>Entries</h1>
+        <h1>{listState.name}</h1>
         <List className={classes.list}>
           <div className={classes.listDiv}>
             {odd.map((entry) => (
               <ListEntry
                 data={entry}
                 location={
-                  listState === allEntries
+                  listState.name === allEntries.name
                     ? entry.id
                     : entry.common_locations && entry.common_locations[0]
                 }
@@ -82,7 +81,7 @@ function Category() {
               <ListEntry
                 data={entry}
                 location={
-                  listState === allEntries
+                  listState.name === allEntries.name
                     ? entry.id
                     : entry.common_locations && entry.common_locations[0]
                 }

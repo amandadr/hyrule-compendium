@@ -10,54 +10,47 @@ const {
   treasure: treasureState,
 } = initialState;
 
+export const fetchData = async (url, setState) => {
+  try {
+    const { data: response } = await axios.get(url);
+    setState(response.data);
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 const categoryEndpoint = (category) =>
   "http://botw-compendium.herokuapp.com/api/v3/compendium/category/" + category;
 
-const useFetchData = () => {
+const useCategoryData = () => {
   const [loading, setLoading] = useState(true);
-  const [allEntries, setEntries] = useState([]);
   const [creatures, setCreatures] = useState(creatureState);
   const [equipment, setEquipment] = useState(equipmentState);
   const [materials, setMaterials] = useState(materialState);
   const [monsters, setMonsters] = useState(monsterState);
   const [treasure, setTreasure] = useState(treasureState);
 
-  const fetchData = async (url, setState) => {
-    try {
-      const { data: response } = await axios.get(url);
-      setState(response.data);
-    } catch (error) {
-      console.error(error);
-    }
-    // setLoading(false);
-    setTimeout(() => {
-      setLoading(false);
-    }, 1000);
-  };
-
   useEffect(() => {
-    fetchData(
-      "https://botw-compendium.herokuapp.com/api/v3/compendium/all",
-      setEntries
-    );
     fetchData(categoryEndpoint("creatures"), setCreatures);
     fetchData(categoryEndpoint("equipment"), setEquipment);
     fetchData(categoryEndpoint("materials"), setMaterials);
     fetchData(categoryEndpoint("monsters"), setMonsters);
     fetchData(categoryEndpoint("treasure"), setTreasure);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
   }, []);
 
   return {
     loading,
-    allEntries,
     categories: [
-      { name: "creatures", data: creatures },
-      { name: "equipment", data: equipment },
-      { name: "materials", data: materials },
-      { name: "monsters", data: monsters },
-      { name: "treasure", data: treasure },
-    ]
+      { name: "Creatures", data: creatures },
+      { name: "Equipment", data: equipment },
+      { name: "Materials", data: materials },
+      { name: "Monsters", data: monsters },
+      { name: "Treasure", data: treasure },
+    ],
   };
 };
 
-export default useFetchData;
+export default useCategoryData;

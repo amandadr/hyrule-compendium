@@ -2,14 +2,15 @@ import React, { useContext } from 'react';
 import { listContext } from '../App';
 
 
-const NavButton = ({ name, data }) => {
+const NavButton = ({ name, category, className }) => {
   const { setListState } = useContext(listContext);
 
   return (
     <button
       onClick={() => {
-        setListState(data);
+        setListState(category);
       }}
+      className={className}
     >
       {name}
     </button>

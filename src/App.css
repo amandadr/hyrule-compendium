@@ -6,7 +6,7 @@
   width: 40vmin;
   pointer-events: none;
   margin-top: 3em;
-  margin-bottom: 2em;
+  margin-bottom: 3em;
 }
 
 @media (prefers-reduced-motion: no-preference) {
