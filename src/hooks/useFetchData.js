@@ -29,7 +29,10 @@ const useFetchData = () => {
     } catch (error) {
       console.error(error);
     }
-    setLoading(false);
+    // setLoading(false);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
   };
 
   useEffect(() => {
@@ -47,11 +50,13 @@ const useFetchData = () => {
   return {
     loading,
     allEntries,
-    creatures,
-    equipment,
-    materials,
-    monsters,
-    treasure,
+    categories: [
+      { name: "creatures", data: creatures },
+      { name: "equipment", data: equipment },
+      { name: "materials", data: materials },
+      { name: "monsters", data: monsters },
+      { name: "treasure", data: treasure },
+    ]
   };
 };
 

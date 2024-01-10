@@ -1,11 +1,15 @@
 import logo from "./logo.svg";
 import "./App.css";
-import React from "react";
+import React, {createContext} from "react";
 import Category from "./components/Category";
 import useFetchData from "./hooks/useFetchData";
 
+export const listContext = createContext();
+
 function App() {
-  const { allEntries, loading } = useFetchData();
+  const { loading } = useFetchData();
+
+  // make topic onclick set this list!!!
 
   return (
     <div className="App">
@@ -13,17 +17,8 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         {loading && <div>Loading</div>}
         {!loading && (
-          <Category title="All Entries" data={allEntries} key="allEntries" />
+          <Category />
         )}
-
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
     </div>
   );
