@@ -13,10 +13,18 @@ const useStyles = makeStyles({
     backgroundColor: "#3e4451",
   },
   list: {
-    columnCount: "2",
+    display: "flex",
+    flex: "wrap",
+    flexDirection: "row",
     alignItems: "space-between",
+    justifyContent: "space-evenly",
     overflow: "visible",
     width: "90%",
+  },
+  listDiv: {
+    display: "flex",
+    flexDirection: "column",
+    maxWidth: "40%",
   },
   box: {
     width: "100%",
@@ -32,8 +40,13 @@ function Category(props) {
   const classes = useStyles();
 
   const sortedData = data.sort((a, b) => {
-    return (a.id - b.id);
+    return a.id - b.id;
   });
+
+  const odd  = sortedData.filter((v) => v.id % 2)
+  const even = sortedData.filter((v) => !(v.id % 2))
+
+  console.log(sortedData)
 
   // location={entry.common_locations && entry.common_locations[0]}
 
@@ -41,14 +54,26 @@ function Category(props) {
     <Box className={classes.box}>
       <h1>{title}</h1>
       <List className={classes.list}>
-        {sortedData.map((entry) => (
-          <ListEntry
-            data={entry}
-            location={entry.id}
-            className={classes.item}
-            key={entry.id}
-          />
-        ))}
+        <div className={classes.listDiv}>
+          {odd.map((entry) => (
+            <ListEntry
+              data={entry}
+              location={entry.id}
+              className={classes.item}
+              key={entry.id}
+            />
+          ))}
+        </div>
+        <div className={classes.listDiv}>
+          {even.map((entry) => (
+            <ListEntry
+              data={entry}
+              location={entry.id}
+              className={classes.item}
+              key={entry.id}
+            />
+          ))}
+        </div>
       </List>
     </Box>
   );
