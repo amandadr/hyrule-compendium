@@ -4,7 +4,9 @@ import React, { createContext } from "react";
 import Category from "./components/Category";
 import useCategoryData from "./hooks/useCategoryData";
 
-export const listContext = createContext();
+export const ListContext = createContext();
+
+export const ModalContext = createContext();
 
 function App() {
   const { loading } = useCategoryData();

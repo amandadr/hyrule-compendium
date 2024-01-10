@@ -1,10 +1,10 @@
 import ListEntry from "./ListEntry";
 import { Box, List } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import useAllData from "../hooks/useAllData";
 import useCategoryData from "../hooks/useCategoryData";
-import { listContext } from "../App";
+import { ListContext } from "../App";
 import Navigation from "./Navigation";
 
 const useStyles = makeStyles({
@@ -43,11 +43,7 @@ function Category() {
 
   const classes = useStyles();
 
-  const [listState, setListState] = useState({ name: "All Entries", data: [] });
-
-  useEffect(() => {
-    setListState(allEntries);
-  }, [loading === false]);
+  const [listState, setListState] = useState({ name: "", data: [] });
 
   const sortedData = listState.data.sort((a, b) => {
     return a.id - b.id;
@@ -57,7 +53,7 @@ function Category() {
   const even = sortedData.filter((e) => !(e.id % 2));
 
   return (
-    <listContext.Provider value={{ listState, setListState }}>
+    <ListContext.Provider value={{ listState, setListState }}>
       <Navigation />
       <Box className={classes.box}>
         <h1>{listState.name}</h1>
@@ -92,7 +88,7 @@ function Category() {
           </div>
         </List>
       </Box>
-    </listContext.Provider>
+    </ListContext.Provider>
   );
 }
 

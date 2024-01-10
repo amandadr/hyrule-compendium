@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
-import { listContext } from '../App';
+import { ListContext } from '../App';
 
 
 const NavButton = ({ name, category, className }) => {
-  const { setListState } = useContext(listContext);
+  const { setListState } = useContext(ListContext);
 
   return (
     <button
