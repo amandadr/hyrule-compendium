@@ -48,7 +48,7 @@ function ListEntry(props) {
             </Stack>
           </Stack>
         </ListItem>
-        <EntryDetails />
+        <EntryDetails data={data} />
       </ModalContext.Provider>
     )
   );
