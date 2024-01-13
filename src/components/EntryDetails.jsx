@@ -7,7 +7,7 @@ import { ModalContext } from "../App";
 const EntryDetails = ({ data }) => {
   const { open, handleClose } = useContext(ModalContext);
 
-  const {
+  let {
     category,
     common_locations,
     cooking_effect,
@@ -22,6 +22,24 @@ const EntryDetails = ({ data }) => {
     properties,
   } = data;
 
+  // turn properties into an array
+  if (properties) {
+    properties = Object.entries(properties);
+  }
+
+  // turn common_locations into a string
+  if (common_locations) {
+    common_locations = common_locations.join(", ");
+  }
+
+  // capitalize name, category, cooking_effect, dlc, drops, edible
+  const capitalize = (str) => typeof str === "string" && str.replace(/\b\w/g, (char) => char.toUpperCase());
+
+  name = capitalize(name);
+  category = capitalize(category);
+  cooking_effect = capitalize(cooking_effect);
+  drops = capitalize(drops);
+
   const renderTypography = (label, value) => {
     if (value) {
       return (
@@ -32,6 +50,9 @@ const EntryDetails = ({ data }) => {
     }
     return null;
   };
+
+  // Manipulate the data: capitalize, add spaces, etc.
+  // Style the modal using MUI
 
   return (
     <Modal
@@ -68,7 +89,14 @@ const EntryDetails = ({ data }) => {
         {renderTypography("Edible", edible)}
         {renderTypography("Hearts Recovered", hearts_recovered)}
         {renderTypography("ID", id)}
-        {renderTypography("Properties", properties)}
+        {properties &&
+          properties.map((property) => {
+            return (
+              <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                {capitalize(property[0])}: {property[1]}
+              </Typography>
+            );
+          })}
       </Box>
     </Modal>
   );
