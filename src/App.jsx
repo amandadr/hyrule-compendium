@@ -16,8 +16,8 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         {loading && <div>Loading</div>}
-        {!loading && <Category />}
       </header>
+      <body className="App-body">{!loading && <Category />}</body>
     </div>
   );
 }

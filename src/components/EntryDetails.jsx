@@ -3,8 +3,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { ModalContext } from "../App";
-import { common } from "@mui/material/colors";
-import "../styles/EntryDetails.scss";
+import "../styles/Modal.scss";
 
 const EntryDetails = ({ data }) => {
   const { open, handleClose } = useContext(ModalContext);
@@ -38,21 +37,23 @@ const EntryDetails = ({ data }) => {
           className="box"
         >
           <Typography className="label">{label}:</Typography>
-          {Array.isArray(value[0])
-            ? value.map(([itemLabel, itemValue]) => (
-                <>
-                  {itemLabel}: {itemValue}
-                  <br />
-                </>
-              ))
-            : value.length > 5
-            ? value.join(", ")
-            : value.map((item) => (
-                <>
-                  {item}
-                  <br />
-                </>
-              ))}
+          <Typography className="value">
+            {Array.isArray(value[0])
+              ? value.map(([itemLabel, itemValue]) => (
+                  <>
+                    {itemLabel}: {itemValue}
+                    <br />
+                  </>
+                ))
+              : value.length > 5
+              ? value.join(", ")
+              : value.map((item) => (
+                  <>
+                    {item}
+                    <br />
+                  </>
+                ))}
+          </Typography>
         </Typography>
       );
     } else if (value === true) {
@@ -63,7 +64,7 @@ const EntryDetails = ({ data }) => {
           className="box"
         >
           <Typography className="label">{label}:</Typography>
-          {value ? "Yes" : "No"}
+          <Typography className="value">{value ? "Yes" : "No"}</Typography>
         </Typography>
       );
     } else if (value) {
@@ -74,7 +75,9 @@ const EntryDetails = ({ data }) => {
           className="box"
         >
           <Typography className="label">{label}:</Typography>
-          {value.length === 0 ? <>None</> : value}
+          <Typography className="value">
+            {value.length === 0 ? <>None</> : value}
+          </Typography>
         </Typography>
       );
     }

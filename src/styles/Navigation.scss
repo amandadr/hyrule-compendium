@@ -1,0 +1,27 @@
+@use "base";
+
+.Nav {
+  display: flex;
+  flex-direction: row;
+  align-items: space-between;
+  justify-content: space-evenly;
+  width: 100%;
+  max-width: 90vw;
+  margin: 1em auto;
+}
+
+.Nav-item {
+  height: 4.5em;
+  width: 16em;
+  max-width: 12%;
+  border: 4px double black;
+  box-shadow: 6px 4px 8px -2px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  background-color: #188c5bc3;
+  background-image: base.$bi-modal;
+  font-family: "HyliaSerifBeta";
+  font-size: 1.2rem;
+  color: base.$light-gold;
+  cursor: pointer;
+}

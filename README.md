@@ -1,5 +1,7 @@
 # Hyrule Compendium (BOTW)
 
+hyrule-comp.amandadroy.com
+
 This is a fun way to browse an encyclopedia of all the in-game interactive items in the world of Hyrule.
 
 ## API

@@ -1,48 +1,30 @@
 import { AppBar, Toolbar } from "@mui/material";
-import { makeStyles } from "@mui/styles";
 import NavButton from "./NavButton";
 import useCategoryData from "../hooks/useCategoryData";
 import useAllData from "../hooks/useAllData";
-
-const useStyles = makeStyles({
-  nav: {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "space-between",
-    justifyContent: "space-evenly",
-    width: "100%",
-    maxWidth: "90vw",
-    margin: "1em auto",
-  },
-  navItem: {
-    height: "4em",
-    width: "100%",
-    maxWidth: "12%",
-    border: "1px solid black",
-    borderRadius: "5px",
-    marginBottom: "5px",
-    backgroundColor: "#aeb3ba",
-    cursor: "pointer",
-  },
-});
+import "../styles/Navigation.scss";
 
 const Navigation = () => {
-  const classes = useStyles();
-
   const { categories } = useCategoryData();
 
   const { allEntries } = useAllData();
 
   return (
     <AppBar position="static" color="transparent">
-      <Toolbar className={classes.nav}>
-        <NavButton name={allEntries.name} category={allEntries} className={classes.navItem} key={allEntries.name} />
+      <Toolbar className="Nav">
+        <NavButton
+          name={allEntries.name}
+          category={allEntries}
+          className="Nav-item"
+          key={allEntries.name}
+        />
         {categories.map((category) => (
           <NavButton
+            id={category.name}
             name={category.name}
             category={category}
             key={category.name}
-            className={classes.navItem}
+            className="Nav-item"
           />
         ))}
       </Toolbar>

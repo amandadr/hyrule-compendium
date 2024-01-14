@@ -1,3 +1,5 @@
+@use "base";
+
 .container {
   display: flex;
   flex-direction: column;
@@ -13,8 +15,8 @@
   border-radius: 10px;
   overflow: visible;
   max-height: 85vh;
-  background-color: #ad7b29;
-  background-image: url("https://www.transparenttextures.com/patterns/cardboard-flat.png");
+  background-color: base.$bc-main;
+  background-image: base.$bi-main;
   position: "absolute";
   top: "50%";
   left: "50%";
@@ -34,6 +36,7 @@
 }
 
 .box {
+  color: #2e2e2e;
   flex: 1;
   text-align: center;
   border-radius: 10px;
@@ -42,21 +45,27 @@
   max-width: 70%;
   text-transform: capitalize;
   background-color: #e4d1b2;
-  background-image: url("https://www.transparenttextures.com/patterns/exclusive-paper.png");
+  background-image: base.$bi-modal;
 
   .label {
+    color: base.$text-green;
     font-family: "HyliaSerifBeta";
+  }
+  .value {
+    color: #3a3a3a;
+    font-weight: 400;
   }
 }
 
 .title {
-  color: black;
+  color: base.$text-green;
   font-weight: "bold";
   text-transform: "capitalize";
 }
 
 .id {
   flex: 1% 0;
+  color: #2e2e2e;
 }
 
 .image {
@@ -65,11 +74,12 @@
   border-radius: 5px;
   overflow: auto;
   padding: 3px;
-  background-color: #e4d1b266;
+  background-color: base.$gold;
   background-image: url("https://www.transparenttextures.com/patterns/exclusive-paper.png");
 }
 
 .description {
+  color: #2e2e2e;
   flex: 1;
   text-align: left;
   overflow: auto;

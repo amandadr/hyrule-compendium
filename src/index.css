@@ -1,6 +1,7 @@
 @font-face {
   font-family: "HyliaSerifBeta";
-  src: local("Hylia"), url(./fonts/HyliaSerifBeta.otf) format("opentype");
+  src: local("HyliaSerifBeta"),
+    url(./fonts/HyliaSerifBeta.otf) format("opentype");
   /* other formats include: 'woff2', 'truetype, 'opentype',
                             'embedded-opentype', and 'svg' */
 }
@@ -12,6 +13,8 @@ body {
     "HyliaSerifBeta" sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #8f6537;
+  background-image: url("https://www.transparenttextures.com/patterns/exclusive-paper.png");
 }
 
 code {

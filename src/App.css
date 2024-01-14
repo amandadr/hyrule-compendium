@@ -3,7 +3,7 @@
 }
 
 .App-logo {
-  width: 40vmin;
+  width: 35vmin;
   pointer-events: none;
   margin-top: 3em;
   margin-bottom: 3em;
@@ -16,8 +16,21 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #8f6537;
+  background-image: url("https://www.transparenttextures.com/patterns/exclusive-paper.png");
+  min-height: 45vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-body {
+  background-color: #8f6537;
+  background-image: url("https://www.transparenttextures.com/patterns/exclusive-paper.png");
+  min-height: 30vh;
   display: flex;
   flex-direction: column;
   align-items: center;
