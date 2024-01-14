@@ -27,7 +27,7 @@
   padding: 1em;
 }
 
-.col {
+.modal-details {
   width: 100%;
   display: flex;
   flex-flow: row wrap;
@@ -35,8 +35,9 @@
   justify-content: space-evenly;
 }
 
-.box {
+.detail-box {
   color: #2e2e2e;
+  min-width: fit-content;
   flex: 1;
   text-align: center;
   border-radius: 10px;
@@ -87,4 +88,42 @@
   max-width: 80%;
   background-color: #e4d1b266;
   border-radius: 10px;
+  margin-top: 2em !important;
+  font-size: 0.9em !important;
+}
+
+@media (max-width: 768px) {
+  .modal {
+    width: 90%;
+    max-height: 90vh;
+  }
+  .detail-box {
+    max-width: 80%;
+  }
+  .description {
+    max-width: 100%;
+    font-size: 1.25em !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .modal {
+    width: 95%;
+    max-height: 80vh;
+    overflow: hidden;
+  }
+  .modal-details {
+    max-height: 30%;
+    overflow-y: scroll;
+    margin-top: 0.05em !important;
+  }
+  .detail-box {
+    max-width: 90%;
+  }
+  .description {
+    max-width: 100%;
+    max-height: 60%;
+    font-size: 1.25em !important;
+    margin-top: 0.25em !important;
+  }
 }

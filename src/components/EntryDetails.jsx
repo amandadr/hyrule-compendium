@@ -34,7 +34,7 @@ const EntryDetails = ({ data }) => {
         <Typography
           id="modal-modal-description"
           sx={{ mt: 2, marginRight: 2, flex: "2" }}
-          className="box"
+          className="detail-box"
         >
           <Typography className="label">{label}:</Typography>
           <Typography className="value">
@@ -61,7 +61,7 @@ const EntryDetails = ({ data }) => {
         <Typography
           id="modal-modal-description"
           sx={{ mt: 2, marginRight: 2, flex: ".5" }}
-          className="box"
+          className="detail-box"
         >
           <Typography className="label">{label}:</Typography>
           <Typography className="value">{value ? "Yes" : "No"}</Typography>
@@ -72,7 +72,7 @@ const EntryDetails = ({ data }) => {
         <Typography
           id="modal-modal-description"
           sx={{ mt: 2, marginRight: 2, flex: "1" }}
-          className="box"
+          className="detail-box"
         >
           <Typography className="label">{label}:</Typography>
           <Typography className="value">
@@ -114,15 +114,11 @@ const EntryDetails = ({ data }) => {
           style={{ width: "150px" }}
           className="image"
         />
-        <Typography
-          id="modal-modal-description"
-          sx={{ mt: 2, fontSize: "14px" }}
-          className="description"
-        >
+        <Typography id="modal-modal-description" className="description">
           {description}
         </Typography>
         <br />
-        <Box className="col">
+        <Box className="modal-details">
           {renderTypography("Common Locations", common_locations)}
           {renderTypography("DLC", dlc)}
           {/* {renderTypography("Category", category)} */}
