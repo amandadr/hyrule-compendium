@@ -14,3 +14,8 @@ $bc-main: #ad7b29;
 // background images
 $bi-main: url("https://www.transparenttextures.com/patterns/cardboard-flat.png");
 $bi-modal: url("https://www.transparenttextures.com/patterns/exclusive-paper.png");
+
+@mixin bg-main {
+  background-color: $bc-main;
+  background-image: $bi-main;
+}

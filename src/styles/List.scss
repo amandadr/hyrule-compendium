@@ -24,24 +24,38 @@
   font-family: "HyliaSerifBeta", sans-serif !important;
   color: base.$light-gold;
   text-transform: capitalize;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: #ad7a2928;
+  flex-basis: 100%;
+  flex: 1;
 }
 
 .list-div {
   display: flex;
   flex-direction: column;
-  max-width: 40%;
+  max-width: 30%;
   margin-top: 1em;
 }
 
 // ListEntry
 .list-item {
-  max-width: 40vw;
+  max-width: 95%;
   border: 3px solid base.$gold;
   border-radius: 0.5em;
+  margin-left: 0.25em;
+  margin-right: 0.25em;
   margin-bottom: 0.6em;
   background-color: #0d9263;
   background-image: url("https://www.transparenttextures.com/patterns/cardboard-flat.png");
   box-shadow: 1px 1px 4px -1px;
+}
+
+.list-item:hover {
+  background-color: #188c5bc3;
+  background-image: url("https://www.transparenttextures.com/patterns/cardboard-flat.png");
+  box-shadow: 2px 2px 8px -2px;
 }
 
 .list-stack {

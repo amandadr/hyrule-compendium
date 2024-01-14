@@ -25,3 +25,9 @@
   color: base.$light-gold;
   cursor: pointer;
 }
+
+.Nav-item:hover {
+  background-color: #0d9263;
+  background-image: base.$bi-modal;
+  color: base.$gold;
+}

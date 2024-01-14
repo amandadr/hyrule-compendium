@@ -15,8 +15,28 @@ function Category() {
     return a.id - b.id;
   });
 
-  const odd = sortedData.filter((e) => e.id % 2);
-  const even = sortedData.filter((e) => !(e.id % 2));
+  const createList = (list) => {
+    return (
+      <div className="list-div">
+        {list.map((entry) => (
+          <ListEntry
+            data={entry}
+            location={
+              listState.name === allEntries.name
+                ? entry.id
+                : entry.common_locations && entry.common_locations[0]
+            }
+            className="list-item"
+            key={entry.id}
+          />
+        ))}
+      </div>
+    );
+  };
+
+  const list1 = sortedData.filter((entry) => entry.id % 3 === 1);
+  const list2 = sortedData.filter((entry) => entry.id % 3 === 2);
+  const list3 = sortedData.filter((entry) => entry.id % 3 === 0);
 
   return (
     <ListContext.Provider value={{ listState, setListState }}>
@@ -26,34 +46,9 @@ function Category() {
           {listState.name}
         </Typography>
         <List className="list">
-          <div className="list-div">
-            {odd.map((entry) => (
-              <ListEntry
-                data={entry}
-                location={
-                  listState.name === allEntries.name
-                    ? entry.id
-                    : entry.common_locations && entry.common_locations[0]
-                }
-                className="list-item"
-                key={entry.id}
-              />
-            ))}
-          </div>
-          <div className="list-div">
-            {even.map((entry) => (
-              <ListEntry
-                data={entry}
-                location={
-                  listState.name === allEntries.name
-                    ? entry.id
-                    : entry.common_locations && entry.common_locations[0]
-                }
-                className="list-item"
-                key={entry.id}
-              />
-            ))}
-          </div>
+          {createList(list1)}
+          {createList(list2)}
+          {createList(list3)}
         </List>
       </Box>
     </ListContext.Provider>
