@@ -20,7 +20,8 @@ export const fetchData = async (url, setState) => {
 };
 
 const categoryEndpoint = (category) =>
-  "http://botw-compendium.herokuapp.com/api/v3/compendium/category/" + category;
+  "https://botw-compendium.herokuapp.com/api/v3/compendium/category/" +
+  category;
 
 const useCategoryData = () => {
   const [loading, setLoading] = useState(true);
