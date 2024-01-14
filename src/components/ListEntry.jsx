@@ -22,7 +22,6 @@ const useStyles = makeStyles({
     width: "100%",
   },
   name: {
-    fontWeight: "700 !important",
     fontSize: "1.2rem !important",
   },
 });
@@ -43,7 +42,13 @@ function ListEntry(props) {
           <Stack direction="row" spacing={2} className={classes.stack}>
             <img src={image} alt={name} className={classes.image} />
             <Stack direction="column" spacing={1} className={classes.text}>
-              <Typography className={classes.name}>{name}</Typography>
+              <Typography
+                className={classes.name}
+                variant="h7"
+                sx={{ fontFamily: "HyliaSerifBeta" }}
+              >
+                {name}
+              </Typography>
               <Typography>{location}</Typography>
             </Stack>
           </Stack>

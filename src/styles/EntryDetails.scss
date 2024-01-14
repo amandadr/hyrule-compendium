@@ -1,0 +1,80 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  overflow: visible;
+  max-height: 85vh;
+  background-color: #ad7b29;
+  background-image: url("https://www.transparenttextures.com/patterns/cardboard-flat.png");
+  position: "absolute";
+  top: "50%";
+  left: "50%";
+  transform: "translate(-50%, -50%)";
+  width: 75%;
+  border: "2px solid #000";
+  box-shadow: 1em;
+  padding: 1em;
+}
+
+.col {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.box {
+  flex: 1;
+  text-align: center;
+  border-radius: 10px;
+  overflow: auto;
+  padding: 5px;
+  max-width: 70%;
+  text-transform: capitalize;
+  background-color: #e4d1b2;
+  background-image: url("https://www.transparenttextures.com/patterns/exclusive-paper.png");
+
+  .label {
+    font-family: "HyliaSerifBeta";
+  }
+}
+
+.title {
+  color: black;
+  font-weight: "bold";
+  text-transform: "capitalize";
+}
+
+.id {
+  flex: 1% 0;
+}
+
+.image {
+  max-width: 200px;
+  max-height: 200px;
+  border-radius: 5px;
+  overflow: auto;
+  padding: 3px;
+  background-color: #e4d1b266;
+  background-image: url("https://www.transparenttextures.com/patterns/exclusive-paper.png");
+}
+
+.description {
+  flex: 1;
+  text-align: left;
+  overflow: auto;
+  padding: 5px;
+  max-width: 80%;
+  background-color: #e4d1b266;
+  border-radius: 10px;
+}

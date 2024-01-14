@@ -1,45 +1,13 @@
 import { useContext } from "react";
-import { makeStyles } from "@mui/styles";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { ModalContext } from "../App";
 import { common } from "@mui/material/colors";
-
-const useStyles = makeStyles(() => ({
-  modal: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    borderRadius: "10px",
-    overflow: "visible",
-    maxHeight: "85vh",
-  },
-  col: {
-    width: "100%",
-    display: "flex",
-    flexFlow: "row wrap",
-    alignItems: "center",
-    justifyContent: "space-evenly",
-  },
-  box: {
-    flex: "1",
-    textAlign: "left",
-    backgroundColor: "white",
-    borderRadius: "5px",
-    border: "1px solid black",
-    overflow: "auto",
-    padding: "5px",
-    maxWidth: "70%",
-    textTransform: "capitalize",
-  },
-}));
+import "../styles/EntryDetails.scss";
 
 const EntryDetails = ({ data }) => {
   const { open, handleClose } = useContext(ModalContext);
-
-  const classes = useStyles();
 
   let {
     category,
@@ -62,17 +30,14 @@ const EntryDetails = ({ data }) => {
   }
 
   const renderTypography = (label, value) => {
-    let width = label.length * 12;
-
     if (Array.isArray(value) && value[0]) {
       return (
         <Typography
           id="modal-modal-description"
-          sx={{ mt: 2, marginRight: 2, width: `${width}px`, flex: "40%" }}
-          className={classes.box}
+          sx={{ mt: 2, marginRight: 2, flex: "2" }}
+          className="box"
         >
-          {label}:
-          <br />
+          <Typography className="label">{label}:</Typography>
           {Array.isArray(value[0])
             ? value.map(([itemLabel, itemValue]) => (
                 <>
@@ -94,10 +59,10 @@ const EntryDetails = ({ data }) => {
       return (
         <Typography
           id="modal-modal-description"
-          sx={{ mt: 2, marginRight: 2, width: `${width}px`, flex: "40%" }}
-          className={classes.box}
+          sx={{ mt: 2, marginRight: 2, flex: ".5" }}
+          className="box"
         >
-          {label}: <br />
+          <Typography className="label">{label}:</Typography>
           {value ? "Yes" : "No"}
         </Typography>
       );
@@ -105,29 +70,14 @@ const EntryDetails = ({ data }) => {
       return (
         <Typography
           id="modal-modal-description"
-          sx={{ mt: 2, marginRight: 2, width: `${width}px`, flex: "25%" }}
-          className={classes.box}
+          sx={{ mt: 2, marginRight: 2, flex: "1" }}
+          className="box"
         >
-          {label}:
-          {value === id ? (
-            ` ${value}`
-          ) : value.length === 0 ? (
-            <>
-              <br />
-              None
-            </>
-          ) : (
-            value && (
-              <>
-                <br />
-                {typeof value === "string" ? value : value}
-              </>
-            )
-          )}
+          <Typography className="label">{label}:</Typography>
+          {value.length === 0 ? <>None</> : value}
         </Typography>
       );
     }
-
     return null;
   };
 
@@ -139,45 +89,38 @@ const EntryDetails = ({ data }) => {
       onClose={handleClose}
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
+      className="container"
     >
-      <Box
-        sx={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          width: 400,
-          bgcolor: "background.paper",
-          border: "2px solid #000",
-          boxShadow: 24,
-          p: 4,
-        }}
-        className={classes.modal}
-      >
+      <Box className="modal">
         <Typography
           id="modal-modal-title"
-          variant="h6"
+          variant="h4"
           component="h2"
-          mb={2}
-          sx={{
-            color: common.black,
-            fontWeight: "bold",
-            textTransform: "capitalize",
-          }}
+          mb={0.5}
+          className="title"
+          sx={{ fontFamily: "HyliaSerifBeta" }}
         >
           {name}
         </Typography>
-        <img src={image} alt={name} style={{ width: "150px" }} />
+        <Typography id="modal-modal-id" sx={{ mb: 1 }}>
+          {id}
+        </Typography>
+        <img
+          src={image}
+          alt={name}
+          style={{ width: "150px" }}
+          className="image"
+        />
         <Typography
           id="modal-modal-description"
-          sx={{ mt: 2, fontSize: "12px" }}
+          sx={{ mt: 2, fontSize: "14px" }}
+          className="description"
         >
           {description}
         </Typography>
         <br />
-        <Box className={classes.col}>
+        <Box className="col">
           {renderTypography("Common Locations", common_locations)}
-          {renderTypography("ID", id)}
           {renderTypography("DLC", dlc)}
           {/* {renderTypography("Category", category)} */}
           {renderTypography("Edible", edible)}

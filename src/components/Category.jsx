@@ -1,9 +1,8 @@
 import ListEntry from "./ListEntry";
-import { Box, List } from "@mui/material";
+import { Box, List, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { useState } from "react";
 import useAllData from "../hooks/useAllData";
-import useCategoryData from "../hooks/useCategoryData";
 import { ListContext } from "../App";
 import Navigation from "./Navigation";
 
@@ -24,6 +23,10 @@ const useStyles = makeStyles({
     overflow: "visible",
     width: "90%",
   },
+  title: {
+    color: "white",
+    textTransform: "capitalize",
+  },
   listDiv: {
     display: "flex",
     flexDirection: "column",
@@ -39,7 +42,6 @@ const useStyles = makeStyles({
 
 function Category() {
   const { allEntries } = useAllData();
-  const { loading } = useCategoryData();
 
   const classes = useStyles();
 
@@ -56,7 +58,14 @@ function Category() {
     <ListContext.Provider value={{ listState, setListState }}>
       <Navigation />
       <Box className={classes.box}>
-        <h1>{listState.name}</h1>
+        <Typography
+          className={classes.title}
+          variant="h2"
+          align="center"
+          sx={{ fontFamily: "HyliaSerifBeta" }}
+        >
+          {listState.name}
+        </Typography>
         <List className={classes.list}>
           <div className={classes.listDiv}>
             {odd.map((entry) => (
