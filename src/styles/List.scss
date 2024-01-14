@@ -30,13 +30,13 @@
   background-color: #ad7a2928;
   flex-basis: 100%;
   flex: 1;
+  padding-top: 0.2em;
 }
 
 .list-div {
   display: flex;
   flex-direction: column;
   max-width: 30%;
-  margin-top: 1em;
 }
 
 // ListEntry
@@ -78,4 +78,26 @@
 
 .list-name {
   font-size: 1.2rem !important;
+}
+
+.list-name:hover {
+  color: base.$gold;
+  cursor: pointer;
+}
+
+@media (max-width: 850px) {
+  .list {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  .list-div {
+    max-width: 100%;
+    width: 90%;
+    align-items: center;
+  }
+  .list-item {
+    max-width: 90%;
+  }
 }

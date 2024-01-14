@@ -18,7 +18,7 @@
 .App-header {
   background-color: #8f6537;
   background-image: url("https://www.transparenttextures.com/patterns/exclusive-paper.png");
-  min-height: 45vh;
+  min-height: 45vmin;
   display: flex;
   flex-direction: column;
   align-items: center;

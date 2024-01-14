@@ -41,10 +41,10 @@ function Category() {
   return (
     <ListContext.Provider value={{ listState, setListState }}>
       <Navigation />
+      <Typography className="list-title" variant="h2" align="center">
+        {listState.name}
+      </Typography>
       <Box className="list-container">
-        <Typography className="list-title" variant="h2" align="center">
-          {listState.name}
-        </Typography>
         <List className="list">
           {createList(list1)}
           {createList(list2)}
