@@ -21,7 +21,7 @@ function Category() {
         {list.map((entry) => (
           <ListEntry
             data={entry}
-            location={
+            subinfo={
               listState.name === allEntries.name
                 ? entry.id
                 : entry.common_locations && entry.common_locations[0]

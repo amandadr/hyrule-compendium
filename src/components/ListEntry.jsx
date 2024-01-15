@@ -6,7 +6,7 @@ import EntryDetails from "./EntryDetails";
 import useModal from "../hooks/useModal";
 
 function ListEntry(props) {
-  const { data, location, className } = props;
+  const { data, subinfo, className } = props;
   const { id, name, image } = data;
 
   const { open, handleOpen, handleClose } = useModal(ModalContext);
@@ -26,7 +26,7 @@ function ListEntry(props) {
               >
                 {name}
               </Typography>
-              <Typography>{location}</Typography>
+              <Typography className="list-subinfo">{subinfo}</Typography>
             </Stack>
           </Stack>
         </ListItem>

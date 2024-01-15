@@ -9,7 +9,6 @@ const EntryDetails = ({ data }) => {
   const { open, handleClose } = useContext(ModalContext);
 
   let {
-    category,
     common_locations,
     cooking_effect,
     description,
@@ -84,8 +83,6 @@ const EntryDetails = ({ data }) => {
     return null;
   };
 
-  // Style the modal using MUI
-
   return (
     <Modal
       open={open}
@@ -121,7 +118,6 @@ const EntryDetails = ({ data }) => {
         <Box className="modal-details">
           {renderTypography("Common Locations", common_locations)}
           {renderTypography("DLC", dlc)}
-          {/* {renderTypography("Category", category)} */}
           {renderTypography("Edible", edible)}
           {renderTypography("Hearts", hearts_recovered)}
           {renderTypography("Cooking Effect", cooking_effect)}
