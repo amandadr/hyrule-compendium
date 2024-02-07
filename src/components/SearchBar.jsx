@@ -11,8 +11,8 @@ function SearchBar() {
   };
 
   const handleSearchClick = () => {
+    // Only fetch if there's a non-empty query
     if (searchQuery.trim() !== "") {
-      // Only fetch if there's a non-empty query
       fetchData(searchQuery);
     }
   };
@@ -29,12 +29,13 @@ function SearchBar() {
 
       {isLoading && <div>Loading...</div>}
 
-      {error && <div>Error: {error.message}</div>}
+      {error &&
+        !isLoading && ( // Display error, hide default 'not found'
+          <div>We couldn't find that in Hyrule!</div>
+        )}
 
-      {data && <ListEntry data={data} className="list-item" key={data.id} />}
-
-      {!isLoading && !error && !data && (
-        <div>We couldn't find that in Hyrule!</div>
+      {data && !error && !isLoading && (
+        <ListEntry data={data} classname="search-item" key={data.id} />
       )}
     </div>
   );
