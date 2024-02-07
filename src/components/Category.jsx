@@ -1,5 +1,4 @@
-import ListEntry from "./ListEntry";
-import { List, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import "../styles/List.scss";
 import { useState, useEffect } from "react";
 import useAllData from "../hooks/useAllData";
