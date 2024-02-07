@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import useSearchData from "../hooks/useSearchData";
 import ListEntry from "./ListEntry";
+import "../styles/Search.scss";
 
 function SearchBar() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -18,25 +19,27 @@ function SearchBar() {
   };
 
   return (
-    <div>
+    <div className="search-container">
       <input
         type="text"
         value={searchQuery}
         onChange={handleSearchInputChange}
         placeholder="Search..."
+        className="search-input"
       />
-      <button onClick={handleSearchClick}>Search</button>
+      <button onClick={handleSearchClick} className="search-button">
+        Search
+      </button>
 
-      {isLoading && <div>Loading...</div>}
+      <div className="search-results">
+        {isLoading && <div>Loading...</div>}
 
-      {error &&
-        !isLoading && ( // Display error, hide default 'not found'
-          <div>We couldn't find that in Hyrule!</div>
+        {error && !isLoading && <div>We couldn't find that in Hyrule!</div>}
+
+        {data && !error && !isLoading && (
+          <ListEntry data={data} className="search-item" key={data.id} />
         )}
-
-      {data && !error && !isLoading && (
-        <ListEntry data={data} classname="search-item" key={data.id} />
-      )}
+      </div>
     </div>
   );
 }

@@ -1,0 +1,47 @@
+@use "base";
+
+.search-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  padding: 10px;
+  border: 1px solid base.$green;
+  border-radius: 5px 0 0 5px;
+  flex: 1;
+}
+
+.search-button {
+  padding: 10px 15px;
+  background-color: base.$green;
+  color: white;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+
+.search-results {
+  display: flex;
+  margin-top: 15px;
+}
+
+.search-item {
+  border: 3px solid base.$gold;
+  border-radius: 0.5em;
+  margin-left: 0.25em;
+  margin-right: 0.25em;
+  margin-bottom: 0.6em;
+  background-color: base.$nav-green;
+  background-image: base.$bi-modal;
+  box-shadow: 1px 1px 4px -1px;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+.search-item:hover {
+  background-color: base.$green;
+  background-image: base.$bi-modal;
+  box-shadow: 2px 2px 8px -2px;
+}

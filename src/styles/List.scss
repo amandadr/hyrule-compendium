@@ -34,14 +34,14 @@
   margin-left: 0.25em;
   margin-right: 0.25em;
   margin-bottom: 0.6em;
-  background-color: #0d9263;
-  background-image: url("https://www.transparenttextures.com/patterns/cardboard-flat.png");
+  background-color: base.$green;
+  background-image: base.$bi-main;
   box-shadow: 1px 1px 4px -1px;
 }
 
 .list-item:hover {
-  background-color: #188c5bc3;
-  background-image: url("https://www.transparenttextures.com/patterns/cardboard-flat.png");
+  background-color: base.$nav-green;
+  background-image: base.$bi-main;
   box-shadow: 2px 2px 8px -2px;
 }
 
