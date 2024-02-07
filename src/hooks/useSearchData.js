@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 const searchEndpoint = (search) =>
-  `https://botw-compendium.herokuapp.com/api/v3/compendium/entry/${search}`;
+  `https://botw-compendium.herokuapp.com/api/v3/compendium/entry/` + search;
 
 function useSearchData(initialSearch = "") {
   const [data, setData] = useState(null);
@@ -17,7 +17,7 @@ function useSearchData(initialSearch = "") {
       try {
         const endpoint = searchEndpoint(search);
         const response = await axios.get(endpoint);
-        setData(response.data);
+        setData(response.data.data);
       } catch (error) {
         setError(error);
       } finally {

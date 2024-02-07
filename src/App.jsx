@@ -3,6 +3,7 @@ import "./App.css";
 import React, { createContext } from "react";
 import Category from "./components/Category";
 import useCategoryData from "./hooks/useCategoryData";
+import SearchBar from "./components/SearchBar";
 
 export const ListContext = createContext();
 
@@ -17,7 +18,10 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         {loading && <div>Loading...</div>}
       </header>
-      <div className="App-body">{!loading && <Category />}</div>
+      <div className="App-body">
+        <SearchBar />
+        {!loading && <Category />}
+      </div>
     </div>
   );
 }
