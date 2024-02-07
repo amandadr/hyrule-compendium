@@ -4,10 +4,17 @@ import ListEntry from "./ListEntry";
 
 function SearchBar() {
   const [searchQuery, setSearchQuery] = useState("");
-  const { data, isLoading, error } = useSearchData(searchQuery);
+  const { data, isLoading, error, fetchData } = useSearchData();
 
-  const handleSearch = (event) => {
+  const handleSearchInputChange = (event) => {
     setSearchQuery(event.target.value);
+  };
+
+  const handleSearchClick = () => {
+    if (searchQuery.trim() !== "") {
+      // Only fetch if there's a non-empty query
+      fetchData(searchQuery);
+    }
   };
 
   return (
@@ -15,9 +22,10 @@ function SearchBar() {
       <input
         type="text"
         value={searchQuery}
-        onChange={handleSearch}
+        onChange={handleSearchInputChange}
         placeholder="Search..."
       />
+      <button onClick={handleSearchClick}>Search</button>
 
       {isLoading && <div>Loading...</div>}
 
