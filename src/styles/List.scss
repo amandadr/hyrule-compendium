@@ -2,24 +2,6 @@
 
 // Category
 
-.list-container {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 1em;
-}
-
-.list {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  align-items: space-between;
-  justify-content: space-evenly;
-  overflow: visible;
-  width: 90%;
-}
-
 .list-title {
   font-family: "HyliaSerifBeta", sans-serif !important;
   color: base.$light-gold;
@@ -33,10 +15,15 @@
   padding-top: 0.2em;
 }
 
-.list-div {
+.list {
+  width: 90vw;
+}
+
+.list-row {
   display: flex;
-  flex-direction: column;
-  max-width: 30%;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 // ListEntry
@@ -86,18 +73,19 @@
 }
 
 @media (max-width: 850px) {
-  .list {
-    flex-direction: column;
+  .list-container {
+    display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
-    width: 98%;
   }
-  .list-div {
-    max-width: 98%;
-    width: 90%;
-    align-items: center;
+  .list {
+    // MEDIA QUERY IN JAVASCRIPT IT WONT WORK LIKE THIS
+    // can you media query by screen size in Category component???
+    width: 98vw;
   }
   .list-item {
+    width: 90%;
     max-width: 90%;
   }
   .list-name {
