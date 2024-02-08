@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import useAllData from "../hooks/useAllData";
 
 const urlAll = "https://botw-compendium.herokuapp.com/api/v3/compendium/all";
 
@@ -13,7 +13,3 @@ const fetchAllData = async () => {
 };
 
 export default fetchAllData;
-
-// export const useFetched = () => {
-//   return useQuery({ queryKey: ["allData"], queryFn: fetchAllData });
-// };

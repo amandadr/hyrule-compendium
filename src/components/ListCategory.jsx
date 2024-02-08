@@ -6,6 +6,8 @@ import { ListContext } from "../App";
 import Navigation from "./Navigation";
 import ListContent from "./ListContent";
 
+import { useCategoryData } from "../hooks/useAllData";
+
 function ListCategory() {
   const { allEntries } = useAllData();
   const [listState, setListState] = useState({ name: "", data: [] });
