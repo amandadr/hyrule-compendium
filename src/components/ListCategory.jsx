@@ -6,20 +6,10 @@ import { ListContext } from "../App";
 import Navigation from "./Navigation";
 import ListContent from "./ListContent";
 
-import { useQuery } from "@tanstack/react-query";
-import fetchAllData from "../helpers/fetchAllData";
-
 function ListCategory() {
-  // const { allEntries } = useAllData();
+  const { allEntries } = useAllData();
   const [listState, setListState] = useState({ name: "", data: [] });
   const [listData, setListData] = useState([]); // State for the sorted list; helps rerender the list when the state changes
-
-  const useFetched = () => {
-    return useQuery({ queryKey: ["allData"], queryFn: fetchAllData });
-  };
-  const { data } = useFetched();
-
-  const allEntries = { name: "All Entries", data: data?.allData };
 
   // Media Query Setup
   const narrowScreenQuery = window.matchMedia("(max-width: 850px)");
@@ -31,7 +21,7 @@ function ListCategory() {
   useEffect(() => {
     const processedData = listState.data.sort((a, b) => a.id - b.id);
     setListData(processedData);
-  }, [listState, allEntries, narrowScreenQuery.matches]);
+  }, [listState, narrowScreenQuery.matches]);
 
   return (
     <ListContext.Provider value={{ listState, setListState }}>

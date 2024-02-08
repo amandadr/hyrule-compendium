@@ -10,25 +10,27 @@ const Navigation = () => {
   const { allEntries } = useAllData();
 
   return (
-    <AppBar position="static" color="transparent">
-      <Toolbar className="Nav">
-        <NavButton
-          name={allEntries.name}
-          category={allEntries}
-          className="Nav-item"
-          key={allEntries.name}
-        />
-        {categories.map((category) => (
+    allEntries.data && (
+      <AppBar position="static" color="transparent">
+        <Toolbar className="Nav">
           <NavButton
-            id={category.name}
-            name={category.name}
-            category={category}
-            key={category.name}
+            name={allEntries.name}
+            category={allEntries}
             className="Nav-item"
+            key={allEntries.name}
           />
-        ))}
-      </Toolbar>
-    </AppBar>
+          {categories.map((category) => (
+            <NavButton
+              id={category.name}
+              name={category.name}
+              category={category}
+              key={category.name}
+              className="Nav-item"
+            />
+          ))}
+        </Toolbar>
+      </AppBar>
+    )
   );
 };
 
