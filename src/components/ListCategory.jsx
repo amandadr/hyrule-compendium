@@ -9,7 +9,7 @@ import ListContent from "./ListContent";
 import { useQuery } from "@tanstack/react-query";
 import fetchAllData from "../helpers/fetchAllData";
 
-function Category() {
+function ListCategory() {
   // const { allEntries } = useAllData();
   const [listState, setListState] = useState({ name: "", data: [] });
   const [listData, setListData] = useState([]); // State for the sorted list; helps rerender the list when the state changes
@@ -17,7 +17,7 @@ function Category() {
   const useFetched = () => {
     return useQuery({ queryKey: ["allData"], queryFn: fetchAllData });
   };
-  const { data, error, isLoading } = useFetched();
+  const { data } = useFetched();
 
   const allEntries = { name: "All Entries", data: data?.allData };
 
@@ -45,10 +45,11 @@ function Category() {
           listState={listState}
           allEntries={allEntries}
           isNarrow={narrowScreenQuery.matches}
+          key={listState.data.length}
         />
       </div>
     </ListContext.Provider>
   );
 }
 
-export default Category;
+export default ListCategory;

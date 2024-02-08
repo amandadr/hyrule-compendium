@@ -5,6 +5,8 @@ import { ModalContext } from "../App";
 import EntryDetails from "./EntryDetails";
 import useModal from "../hooks/useModal";
 
+import randomString from "../helpers/keyGenerator";
+
 function ListEntry(props) {
   const { data, subinfo, className } = props;
   const { id, name, image } = data;
@@ -30,7 +32,7 @@ function ListEntry(props) {
             </Stack>
           </Stack>
         </ListItem>
-        <EntryDetails data={data} />
+        <EntryDetails data={data} key={randomString()} />
       </ModalContext.Provider>
     )
   );

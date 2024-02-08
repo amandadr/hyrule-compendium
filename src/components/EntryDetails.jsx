@@ -5,6 +5,8 @@ import Modal from "@mui/material/Modal";
 import { ModalContext } from "../App";
 import "../styles/Modal.scss";
 
+import randomString from "../helpers/keyGenerator";
+
 const EntryDetails = ({ data }) => {
   const { open, handleClose } = useContext(ModalContext);
 
@@ -34,9 +36,12 @@ const EntryDetails = ({ data }) => {
           id="modal-modal-description"
           sx={{ mt: 2, marginRight: 2, flex: "2" }}
           className="detail-box"
+          key={randomString()}
         >
-          <Typography className="label">{label}:</Typography>
-          <Typography className="value">
+          <Typography className="label" key={randomString()}>
+            {label}:
+          </Typography>
+          <Typography className="value" key={randomString()}>
             {Array.isArray(value[0])
               ? value.map(([itemLabel, itemValue]) => (
                   <>
@@ -61,9 +66,14 @@ const EntryDetails = ({ data }) => {
           id="modal-modal-description"
           sx={{ mt: 2, marginRight: 2, flex: ".5" }}
           className="detail-box"
+          key={randomString()}
         >
-          <Typography className="label">{label}:</Typography>
-          <Typography className="value">{value ? "Yes" : "No"}</Typography>
+          <Typography className="label" key={randomString()}>
+            {label}:
+          </Typography>
+          <Typography className="value" key={randomString()}>
+            {value ? "Yes" : "No"}
+          </Typography>
         </Typography>
       );
     } else if (value) {
@@ -72,9 +82,12 @@ const EntryDetails = ({ data }) => {
           id="modal-modal-description"
           sx={{ mt: 2, marginRight: 2, flex: "1" }}
           className="detail-box"
+          key={randomString()}
         >
-          <Typography className="label">{label}:</Typography>
-          <Typography className="value">
+          <Typography className="label" key={randomString()}>
+            {label}:
+          </Typography>
+          <Typography className="value" key={randomString()}>
             {value.length === 0 ? <>None</> : value}
           </Typography>
         </Typography>
@@ -90,6 +103,7 @@ const EntryDetails = ({ data }) => {
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
       className="container"
+      key={randomString()}
     >
       <Box className="modal">
         <Typography
