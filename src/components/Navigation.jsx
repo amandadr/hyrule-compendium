@@ -25,6 +25,7 @@ const Navigation = () => {
             category={allEntries}
             className="Nav-item"
             key={allEntries.name}
+            all={allEntries}
           />
           {allCatDataState.map((category) => (
             <NavButton

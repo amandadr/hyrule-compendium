@@ -1,9 +1,16 @@
-import React, { useContext } from 'react';
-import { ListContext } from '../App';
+import React, { useContext, useEffect } from "react";
+import { ListContext } from "../App";
 
-
-const NavButton = ({ name, category, className }) => {
+const NavButton = ({ name, category, className, all }) => {
   const { setListState } = useContext(ListContext);
+
+  const data = all?.data;
+
+  useEffect(() => {
+    if (data) {
+      setListState(all);
+    }
+  }, []);
 
   return (
     <button
@@ -15,6 +22,6 @@ const NavButton = ({ name, category, className }) => {
       {name}
     </button>
   );
-}
+};
 
 export default NavButton;
