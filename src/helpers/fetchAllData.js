@@ -1,5 +1,3 @@
-import useAllData from "../hooks/useAllData";
-
 const urlAll = "https://botw-compendium.herokuapp.com/api/v3/compendium/all";
 
 const fetchAllData = async () => {
