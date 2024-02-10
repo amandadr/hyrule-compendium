@@ -1,4 +1,5 @@
 import React from "react";
+import useAllData from "../hooks/useAllData";
 import ListEntry from "./ListEntry";
 import { List } from "@mui/material";
 import "../styles/List.scss";
@@ -6,7 +7,8 @@ import "../styles/List.scss";
 import randomString from "../helpers/keyGenerator";
 
 function ListContent(props) {
-  const { listData, listState, allEntries, isNarrow } = props;
+  const { listData, listState, isNarrow } = props;
+  const { allEntries } = useAllData();
 
   function createLists(list) {
     const rows = [];

@@ -1,15 +1,11 @@
 import { Typography } from "@mui/material";
 import "../styles/List.scss";
 import { useState, useEffect } from "react";
-import useAllData from "../hooks/useAllData";
 import { ListContext } from "../App";
 import Navigation from "./Navigation";
 import ListContent from "./ListContent";
 
-import { useCategoryData } from "../hooks/useAllData";
-
 function ListCategory() {
-  const { allEntries } = useAllData();
   const [listState, setListState] = useState({ name: "", data: [] });
   const [listData, setListData] = useState([]); // State for the sorted list; helps rerender the list when the state changes
 
@@ -35,7 +31,6 @@ function ListCategory() {
         <ListContent
           listData={listData}
           listState={listState}
-          allEntries={allEntries}
           isNarrow={narrowScreenQuery.matches}
           key={listState.data.length}
         />

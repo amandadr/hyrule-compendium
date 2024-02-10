@@ -1,57 +1,39 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { initialState } from "../data/initialState";
+import useFetchQuery from "./useFetchQuery";
 
-const {
-  creatures: creatureState,
-  equipment: equipmentState,
-  materials: materialState,
-  monsters: monsterState,
-  treasure: treasureState,
-} = initialState;
+const categories = [
+  "creatures",
+  "equipment",
+  "materials",
+  "monsters",
+  "treasure",
+];
 
-export const fetchData = async (url, setState) => {
-  try {
-    const { data: response } = await axios.get(url);
-    setState(response.data);
-  } catch (error) {
-    console.error(error);
-  }
-};
+const useCategoryData = async (category) => {
+  let { data, isLoading } = useFetchQuery();
 
-const categoryEndpoint = (category) =>
-  "https://botw-compendium.herokuapp.com/api/v3/compendium/category/" +
-  category;
+  data = data?.allData.data;
 
-const useCategoryData = () => {
-  const [loading, setLoading] = useState(true);
-  const [creatures, setCreatures] = useState(creatureState);
-  const [equipment, setEquipment] = useState(equipmentState);
-  const [materials, setMaterials] = useState(materialState);
-  const [monsters, setMonsters] = useState(monsterState);
-  const [treasure, setTreasure] = useState(treasureState);
-
-  useEffect(() => {
-    fetchData(categoryEndpoint("creatures"), setCreatures);
-    fetchData(categoryEndpoint("equipment"), setEquipment);
-    fetchData(categoryEndpoint("materials"), setMaterials);
-    fetchData(categoryEndpoint("monsters"), setMonsters);
-    fetchData(categoryEndpoint("treasure"), setTreasure);
-    setTimeout(() => {
-      setLoading(false);
-    }, 1000);
-  }, []);
-
-  return {
-    loading,
-    categories: [
-      { name: "Creatures", data: creatures },
-      { name: "Equipment", data: equipment },
-      { name: "Materials", data: materials },
-      { name: "Monsters", data: monsters },
-      { name: "Treasure", data: treasure },
-    ],
-  };
+  const categoryData = data.filter((entry) => entry.category === category);
+  return { categoryData, isLoading };
 };
 
 export default useCategoryData;
+
+export const useAllCategoryData = () => {
+  let { data, isLoading } = useFetchQuery();
+
+  data = data?.allData.data;
+
+  const allCategoryData = categories.map((category) => {
+    return {
+      name: category,
+      data: data.filter((entry) => entry.category === category),
+    };
+  });
+
+  if (!isLoading) {
+    return { allCategoryData, isLoading };
+  }
+
+  // return { allCategoryData, isLoading };
+};

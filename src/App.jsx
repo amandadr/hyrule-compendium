@@ -4,15 +4,11 @@ import React, { createContext } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import HomeRoute from "./routes/HomeRoute";
 
-import useCategoryData from "./hooks/useCategoryData";
-
 export const ListContext = createContext();
 
 export const ModalContext = createContext();
 
 function App() {
-  const { loading } = useCategoryData();
-
   const queryClient = new QueryClient({
     defaultOptions: {
       queries: {
