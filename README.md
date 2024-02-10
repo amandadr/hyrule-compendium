@@ -14,19 +14,19 @@ Sometime soon, I plan to vastly expand this project... Stay tuned!!
 
 <img src="https://github.com/amandadr/hyrule-compendium/blob/master/public/docs/Screenshot_desktop_search.jpg?raw=true" width="900px" height="auto" />
 
-<img src="https://github.com/amandadr/hyrule-compendium/blob/master/public/docs/Screenshot_iPad-search.jpg?raw=true" width="575px" height="750px" />
+<img src="https://github.com/amandadr/hyrule-compendium/blob/master/public/docs/Screenshot_iPad-search.jpg?raw=true" width="350px" height="auto" />
 
 ### List by Category
 
 <img src="https://github.com/amandadr/hyrule-compendium/blob/master/public/docs/Screenshot_desktop-list.jpg?raw=true" width="900px" height="auto" />
 
-<img src="https://github.com/amandadr/hyrule-compendium/blob/master/public/docs/Screenshot_iPad-list.jpg?raw=true" width="575px" height="750px" />
+<img src="https://github.com/amandadr/hyrule-compendium/blob/master/public/docs/Screenshot_iPad-list.jpg?raw=true" width="350px" height="auto" />
 
 ### Learn All About It!
 
 <img src="https://github.com/amandadr/hyrule-compendium/blob/master/public/docs/Screenshot_desktop-entry.jpg?raw=true" width="900px" height="auto" />
 
-<img src="https://github.com/amandadr/hyrule-compendium/blob/master/public/docs/Screenshot_iPad-entry.jpg?raw=true" width="575px" height="750px" />
+<img src="https://github.com/amandadr/hyrule-compendium/blob/master/public/docs/Screenshot_iPad-entry.jpg?raw=true" width="350px" height="auto" />
 
 ## API
 
