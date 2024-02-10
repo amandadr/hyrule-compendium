@@ -1,18 +1,52 @@
 # Hyrule Compendium (BOTW)
 
-hyrule-comp.amandadroy.com
+## NOW LIVE!
+
+Check it out: <a href="https://hyrule.amandadroy.com">Hyrule Compendium</a>
 
 This is a fun way to browse an encyclopedia of all the in-game interactive items in the world of Hyrule.
 
+Sometime soon, I plan to vastly expand this project... Stay tuned!!
+
+## Your BOTW Companion:
+
+### Search by Name or ID
+
+<img src="https://github.com/amandadr/hyrule-compendium/blob/master/public/docs/Screenshot_desktop_search.jpg?raw=true" width="900px" height="auto" />
+
+<img src="https://github.com/amandadr/hyrule-compendium/blob/master/public/docs/Screenshot_iPad-search.jpg?raw=true" width="575px" height="750px" />
+
+### List by Category
+
+<img src="https://github.com/amandadr/hyrule-compendium/blob/master/public/docs/Screenshot_desktop-list.jpg?raw=true" width="900px" height="auto" />
+
+<img src="https://github.com/amandadr/hyrule-compendium/blob/master/public/docs/Screenshot_iPad-list.jpg?raw=true" width="575px" height="750px" />
+
+### Learn All About It!
+
+<img src="https://github.com/amandadr/hyrule-compendium/blob/master/public/docs/Screenshot_desktop-entry.jpg?raw=true" width="900px" height="auto" />
+
+<img src="https://github.com/amandadr/hyrule-compendium/blob/master/public/docs/Screenshot_iPad-entry.jpg?raw=true" width="575px" height="750px" />
+
 ## API
 
-With major thanks to gadhagod and team for putting together a seamless API:
+With major thanks to gadhagod and team for putting together a wonderful API:
 https://github.com/gadhagod/Hyrule-Compendium-API
 
 ## Getting started
 
 To boot up the project locally, script:
 
+### `npm i --legacy-peer-deps` (Yeah I'm criminal like that :D )
+
 ### `npm start`
 
 Runs the project on localhost:3000
+
+## Suggestions?
+
+I'll be working on this one continuously, using it as a training project - as I learn, please send me any suggestions you may have to improve the app!
+
+amandadroy@gmail.com
+
+Refactoring, libraries, React states - I'm still getting a grip on it all, I appreciate any big nudges in the right direction you might have to offer :)
