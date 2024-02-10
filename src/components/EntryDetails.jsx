@@ -30,6 +30,21 @@ const EntryDetails = ({ data }) => {
     properties = Object.entries(properties);
   }
 
+  // use an object to organize the rendering of data in modal-details
+  const organizeTypography = () => {
+    // to be mapped with renderTypography: [label, value]
+    const details = {
+      "Common Locations": common_locations,
+      DLC: dlc,
+      Edible: edible,
+      "Hearts Recovered": hearts_recovered,
+      "Cooking Effect": cooking_effect,
+      Drops: drops,
+      Stats: properties,
+    };
+    return details;
+  };
+
   return (
     <Modal
       open={open}
@@ -64,13 +79,9 @@ const EntryDetails = ({ data }) => {
         </Typography>
         <br />
         <Box className="modal-details">
-          {renderTypography("Common Locations", common_locations)}
-          {renderTypography("DLC", dlc)}
-          {renderTypography("Edible", edible)}
-          {renderTypography("Hearts", hearts_recovered)}
-          {renderTypography("Cooking Effect", cooking_effect)}
-          {renderTypography("Drops", drops)}
-          {renderTypography("Stats", properties)}
+          {Object.entries(organizeTypography()).map(([label, value]) => {
+            return renderTypography(label, value);
+          })}
         </Box>
       </Box>
     </Modal>
