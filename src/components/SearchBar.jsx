@@ -30,21 +30,23 @@ function SearchBar() {
 
   return (
     <div className="search-container">
-      <input
-        id="search-input"
-        type="text"
-        value={searchQuery}
-        onChange={handleSearchInputChange}
-        placeholder="Search by name or ID..."
-        className="search-input"
-      />
-      <button
-        onClick={handleSearchClick}
-        className="search-button"
-        id="search-button"
-      >
-        Search
-      </button>
+      <div className="search-input-container">
+        <input
+          id="search-input"
+          type="text"
+          value={searchQuery}
+          onChange={handleSearchInputChange}
+          placeholder="Search by name or ID..."
+          className="search-input"
+        />
+        <button
+          onClick={handleSearchClick}
+          className="search-button"
+          id="search-button"
+        >
+          Search
+        </button>
+      </div>
       <div className="search-results">
         {isLoading && <div>Loading...</div>}
 

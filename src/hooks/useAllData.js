@@ -6,11 +6,11 @@ const useFetched = () => {
 };
 
 const useAllData = () => {
-  const { data } = useFetched();
+  const { data, isLoading } = useFetched();
 
   const allEntries = { name: "All Entries", data: data?.allData.data };
 
-  return { allEntries };
+  return { allEntries, isLoading };
 };
 export default useAllData;
 

@@ -3,7 +3,13 @@
 .search-container {
   display: flex;
   align-items: center;
+  justify-content: center;
   margin-bottom: 20px;
+}
+
+.search-input-container {
+  position: relative;
+  max-width: 35vw;
 }
 
 .search-input {
@@ -11,6 +17,7 @@
   border: 1px solid base.$green;
   border-radius: 5px 0 0 5px;
   flex: 1;
+  height: 1.25rem;
 }
 
 .search-button {
@@ -19,12 +26,16 @@
   color: white;
   border: none;
   border-radius: 0 5px 5px 0;
+  height: 2.6rem;
   cursor: pointer;
 }
 
 .search-results {
   display: flex;
   margin-top: 15px;
+  height: 9rem;
+  align-items: center;
+  justify-content: center;
 }
 
 .search-item {
@@ -44,4 +55,14 @@
   background-color: base.$green;
   background-image: base.$bi-modal;
   box-shadow: 2px 2px 8px -2px;
+}
+
+@media (max-width: 768px) {
+  .search-container {
+    flex-direction: column;
+  }
+
+  .search-input {
+    margin-bottom: 10px;
+  }
 }
