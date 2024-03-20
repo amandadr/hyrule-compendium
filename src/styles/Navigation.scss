@@ -1,6 +1,7 @@
 @use "base";
 
 .Nav {
+  position: relative;
   display: flex;
   flex-direction: row;
   align-items: space-between;
