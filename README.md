@@ -6,7 +6,7 @@ Check it out: <a href="https://hyrule.amandadroy.com">Hyrule Compendium</a>
 
 This is a fun way to browse an encyclopedia of all the in-game interactive items in the world of Hyrule.
 
-Sometime soon, I plan to vastly expand this project... Stay tuned!!
+Updated 2024-03-21: Integrated a Lambda-hosted fuzzy search function which filters search terms before requesting entries from the API. This allows users to input partial terms or typos and return accurate results!
 
 ## Your BOTW Companion:
 
@@ -49,4 +49,4 @@ I'll be working on this one continuously, using it as a training project - as I 
 
 amandadroy@gmail.com
 
-Refactoring, libraries, React states - I'm still getting a grip on it all, I appreciate any big nudges in the right direction you might have to offer :)
+Refactoring, libraries, React states - I'm still getting a grip on it all, I appreciate any nudges in the right direction you might have to offer :)
