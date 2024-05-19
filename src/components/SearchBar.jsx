@@ -12,12 +12,14 @@ function SearchBar() {
     input.addEventListener("keypress", function (event) {
       // If the user presses the "Enter" key on the keyboard
       if (event.key === "Enter") {
-        event.preventDefault();
         // Set the state to the value of the input element and
         setSearchQuery(inputEvent.target.value);
         // Trigger the button element with a click
         document.getElementById("search-button").click();
       }
+    });
+    input.addEventListener("change", function (event) {
+      setSearchQuery(inputEvent.target.value);
     });
   };
 
