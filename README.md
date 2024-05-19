@@ -1,14 +1,20 @@
 # Hyrule Compendium (BOTW)
 
-## NOW LIVE!
+This site provides a fun way to browse an encyclopedia of all the interactive items found in the world of Hyrule, Breath of the Wild.
+
+## Live Demo:
 
 Check it out: <a href="https://hyrule.amandadroy.com">Hyrule Compendium</a>
 
-This is a fun way to browse an encyclopedia of all the in-game interactive items in the world of Hyrule.
+## Features
 
-Updated 2024-03-21: Integrated a Lambda-hosted fuzzy search function which filters search terms before requesting entries from the API. This allows users to input partial terms or typos and return accurate results!
+- View items by category by using the navigation buttons
+- View item details by clicking on something of interest
+  - __Detailed info includes:__ common locations, cooking effect, description, dlc, edible, hearts recovered, weapon stats (attack, defense)
+- Search by name; includes fuzzy searching for typos and close matches
+- Dockerized for seamless production and deployment
 
-## Your BOTW Companion:
+## Screenshots:
 
 ### Search by Name or ID
 
@@ -28,25 +34,43 @@ Updated 2024-03-21: Integrated a Lambda-hosted fuzzy search function which filte
 
 <img src="https://github.com/amandadr/hyrule-compendium/blob/master/public/docs/Screenshot_iPad-entry.jpg?raw=true" width="350px" height="auto" />
 
-## API
+## API Credit
 
 With major thanks to gadhagod and team for putting together a wonderful API:
 https://github.com/gadhagod/Hyrule-Compendium-API
 
-## Getting started
+## Getting Started
 
-To boot up the project locally, script:
+### Setup
 
-### `npm i --legacy-peer-deps` (Yeah I'm criminal like that :D )
+1. **Clone the repository**
 
-### `npm start`
+   ```bash
+   git clone https://github.com/amandadr/whisper-transcriber.git
+   cd whisper-transcriber
+   ```
 
-Runs the project on localhost:3000
+2. **Install Docker**
 
-## Suggestions?
+   - Follow the intructions on the ['get Docker' site](https://docs.docker.com/get-docker/).
 
-I'll be working on this one continuously, using it as a training project - as I learn, please send me any suggestions you may have to improve the app!
+### Usage
 
-amandadroy@gmail.com
+##### Build the Docker image:
+```bash
+docker build -t hyrule:latest .
+```
 
-Refactoring, libraries, React states - I'm still getting a grip on it all, I appreciate any nudges in the right direction you might have to offer :)
+### 2. Build the Docker container:
+```bash
+docker run -d -p 4000:80 --name hyrule-compendium hyrule:latest
+```
+
+### 3. Find the app at localhost:4000 :)
+
+## Changelog
+
+- Updated 2024-03-21: 
+  - Integrated a Lambda-hosted fuzzy search function which filters search terms before requesting entries from the API. This allows users to input partial terms or typos and return accurate results!
+- Updated 2024-05-19:
+  - Dockerized the application.
