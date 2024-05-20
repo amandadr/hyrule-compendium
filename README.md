@@ -16,28 +16,24 @@ Check it out: <a href="https://hyrule.amandadroy.com">Hyrule Compendium</a>
 
 ## Screenshots:
 
-### Search by Name or ID
+### 🔍 Search by Name or ID
 
 <img src="https://github.com/amandadr/hyrule-compendium/blob/master/public/docs/Screenshot_desktop_search.jpg?raw=true" width="900px" height="auto" />
 
 <img src="https://github.com/amandadr/hyrule-compendium/blob/master/public/docs/Screenshot_iPad-search.jpg?raw=true" width="350px" height="auto" />
 
-### List by Category
+### 📑 List by Category
 
 <img src="https://github.com/amandadr/hyrule-compendium/blob/master/public/docs/Screenshot_desktop-list.jpg?raw=true" width="900px" height="auto" />
 
 <img src="https://github.com/amandadr/hyrule-compendium/blob/master/public/docs/Screenshot_iPad-list.jpg?raw=true" width="350px" height="auto" />
 
-### Learn All About It!
+### ℹ Learn All About It!
 
 <img src="https://github.com/amandadr/hyrule-compendium/blob/master/public/docs/Screenshot_desktop-entry.jpg?raw=true" width="900px" height="auto" />
 
 <img src="https://github.com/amandadr/hyrule-compendium/blob/master/public/docs/Screenshot_iPad-entry.jpg?raw=true" width="350px" height="auto" />
 
-## API Credit
-
-With major thanks to gadhagod and team for putting together a wonderful API:
-https://github.com/gadhagod/Hyrule-Compendium-API
 
 ## Getting Started
 
@@ -50,26 +46,33 @@ https://github.com/gadhagod/Hyrule-Compendium-API
    cd hyrule-compendium
    ```
 
-2. **Install Docker**
+2. **Install Docker (Optional)**
 
    - Follow the intructions on the ['get Docker' site](https://docs.docker.com/get-docker/).
 
 ### Usage
 
-##### Build the Docker image:
+Use the traditional `npm i`, `npm start` combo, or...
+
+#### 1. Build the Docker image:
 ```bash
 docker build -t hyrule:latest .
 ```
 
-### 2. Build the Docker container:
+#### 2. Build the Docker container:
 ```bash
 docker run -d -p 4000:80 --name hyrule-compendium hyrule:latest
 ```
 
-### 3. Find the app at localhost:4000 :)
+#### 3. Find the app at localhost:4000 - have fun :)
+
+## API Dependency
+
+With major thanks to gadhagod for putting together a [wonderful API](https://github.com/gadhagod/Hyrule-Compendium-API)
 
 ## Changelog
 ...
+
 - Updated 2024-03-21: 
   - Integrated a Lambda-hosted fuzzy search function which filters search terms before requesting entries from the API. This allows users to input partial terms or typos and return accurate results!
 - Updated 2024-05-19:
