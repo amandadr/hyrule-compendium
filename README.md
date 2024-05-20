@@ -46,8 +46,8 @@ https://github.com/gadhagod/Hyrule-Compendium-API
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/amandadr/whisper-transcriber.git
-   cd whisper-transcriber
+   git clone https://github.com/amandadr/hyrule-compendium.git
+   cd hyrule-compendium
    ```
 
 2. **Install Docker**
@@ -69,7 +69,7 @@ docker run -d -p 4000:80 --name hyrule-compendium hyrule:latest
 ### 3. Find the app at localhost:4000 :)
 
 ## Changelog
-
+...
 - Updated 2024-03-21: 
   - Integrated a Lambda-hosted fuzzy search function which filters search terms before requesting entries from the API. This allows users to input partial terms or typos and return accurate results!
 - Updated 2024-05-19:
